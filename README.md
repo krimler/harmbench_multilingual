@@ -1,4 +1,4 @@
-# HarmBench × Global South languages — small empirical study
+# HarmBench × Non English languages — small empirical study
 
 End-to-end pipeline that measures whether a current open LLM refuses harmful
 prompts less reliably in five Global South languages than in English. All
