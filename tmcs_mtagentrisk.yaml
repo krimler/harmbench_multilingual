@@ -1,0 +1,42 @@
+tmcs_version: "0.1"
+benchmark_name: "MT-AgentRisk (li2026mtagentrisk)"
+languages_instrumented:
+  covered: [en]                 # inferred; not stated explicitly by the benchmark
+  not_covered: >
+    No non-English tool interactions tested. The absence of an
+    explicit language statement is itself a finding.
+jurisdictions_instrumented:
+  legal_frameworks: []          # none stated; harms framed as generic destructive ops
+  not_covered: >
+    No jurisdictional framing for the actions the tools take
+    (e.g. data-deletion under GDPR vs DPDPA; SQL exfiltration as
+    CFAA vs local computer-misuse statutes).
+deployment_contexts_instrumented: >
+  Multi-turn agentic deployments using MCP tooling for five named tools:
+  Filesystem-MCP, Playwright-MCP (browser), Terminal, PostgreSQL-MCP,
+  Notion-MCP. Mean 3.19 turns per task; harmful intent distributed
+  across turns via the Addition/Decomposition taxonomy (8 subcategories).
+harm_categories_included:
+  - "Destructive file operations (Filesystem)"
+  - "Web/browser manipulation (Playwright)"
+  - "Shell command chaining (Terminal)"
+  - "SQL injection and DB manipulation (PostgreSQL)"
+  - "Document/workspace harms (Notion)"
+harm_categories_excluded:
+  - category: "Tools outside the five tested (email, calendar, financial APIs, code sandboxes)"
+    citation: ""
+  - category: "Non-English tool interactions and localized harmful payloads"
+    citation: "abdullahi2026ubuntuguard"
+  - category: "Human-in-the-loop scenarios where a confirming user could intercept multi-turn attacks"
+    citation: ""
+  - category: "Multimodal (voice, image) tool-invocation channels"
+    citation: ""
+evaluator_specification: >
+  GPT-4.1 as LLM-as-judge per trajectory; 95.15% agreement with
+  rule-based and 93.53% with human eval (English content only).
+  Reliability on non-English trajectories untested.
+taxonomy_authors: >
+  Authored by the MT-AgentRisk research team. Claude-4.5-Sonnet used
+  to automatically transform single-turn tasks into multi-turn
+  sequences. No documented procedure for evaluators outside the team
+  to propose new tools, turn formats, or risk categories.

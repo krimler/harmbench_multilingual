@@ -1,0 +1,17 @@
+tmcs_version: "0.1"
+benchmark_name: ""              # free-text; benchmark identifier + bib citation key
+languages_instrumented:
+  covered: []                   # controlled: ISO 639-1 codes, e.g. [en, hi]
+  not_covered: ""               # free-text: explicit non-coverage statement
+jurisdictions_instrumented:
+  legal_frameworks: []          # controlled: ISO 3166 codes or named regimes,
+                                #   e.g. [US-copyright, US-UK-defamation]
+  not_covered: ""               # free-text: regimes outside scope
+deployment_contexts_instrumented: ""  # free-text; if absent, mark "not stated"
+harm_categories_included: []    # free-text list with brief descriptions
+harm_categories_excluded:       # known-relevant but out of scope
+  - category: ""                # free-text
+    citation: ""                # bib key for the work surfacing the exclusion
+evaluator_specification: ""     # free-text: classifier/judge + known limitations
+taxonomy_authors: ""            # free-text: authoring population, and any procedure
+                                #   (or its absence) for external category proposals
